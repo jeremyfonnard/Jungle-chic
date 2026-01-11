@@ -25,13 +25,15 @@
     "lucide-react": "^0.507.0",
     "mongodb": "^6.3.0",
     "next": "^14.2.0",
+    "next-intl": "^4.7.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "sonner": "^2.0.3",
     "stripe": "^14.1.0",
     "tailwind-merge": "^3.2.0",
     "tailwindcss-animate": "^1.0.7",
-    "uuid": "^13.0.0"
+    "uuid": "^13.0.0",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
