@@ -22,6 +22,7 @@ export const CartProvider = ({ children }) => {
     if (token) {
       fetchCart();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   const fetchCart = async () => {
