@@ -1,30 +1,35 @@
-# Jungle Chic - Next.js E-commerce
+# Jungle Chic - Next.js Fullstack E-commerce avec i18n
 
-Application e-commerce fullstack Next.js 14 pour maillots de bain avec design jungle élégant.
+Application e-commerce complète Next.js 14 pour maillots de bain avec **internationalisation français/anglais**.
 
-## 🚀 Migration vers Next.js Complète!
+## 🌍 Nouveauté: Multilingue FR/EN
 
-Cette version utilise Next.js avec App Router, remplaçant complètement FastAPI + React séparés.
+- **Français** (par défaut): `/fr/*`
+- **English**: `/en/*`
+- Sélecteur de langue dans la navbar
+- Traductions complètes de l'interface
 
-## ✨ Avantages de Next.js
+## ✨ Fonctionnalités Complètes
 
-- **Tout-en-un**: Frontend + Backend API dans un seul projet
-- **SEO optimisé**: Server-Side Rendering pour meilleur référencement
-- **Performance**: Server Components, optimisation automatique images
-- **Déploiement facile**: Deploy sur Vercel en un clic
-- **TypeScript**: Type safety pour backend et frontend
+### E-commerce
+- ✅ Catalogue produits avec filtres (catégorie, prix, couleur, taille)
+- ✅ Pages détail produit avec galerie d'images
+- ✅ Panier d'achat avec gestion des quantités
+- ✅ Processus de checkout multi-étapes
+- ✅ Paiements sécurisés Stripe
+- ✅ Compte utilisateur avec historique des commandes
 
-## 📦 Stack Technique
+### Technique
+- ✅ Next.js 14 App Router
+- ✅ TypeScript fullstack
+- ✅ API Routes (Backend)
+- ✅ MongoDB avec Motor
+- ✅ Zustand pour state management
+- ✅ next-intl pour i18n
+- ✅ Tailwind CSS + shadcn/ui
+- ✅ Images optimisées avec Next/Image
 
-- **Framework**: Next.js 14 (App Router)
-- **Langage**: TypeScript
-- **Styling**: Tailwind CSS + shadcn/ui
-- **Base de données**: MongoDB
-- **Auth**: JWT avec jsonwebtoken
-- **Paiements**: Stripe
-- **Notifications**: Sonner
-
-## 🛠️ Installation
+## 🚀 Installation
 
 ### Prérequis
 - Node.js 18+
@@ -38,55 +43,86 @@ Cette version utilise Next.js avec App Router, remplaçant complètement FastAPI
 yarn install
 
 # Configurer les variables d'environnement
-# Copier .env.local.example vers .env.local et remplir:
-# - MONGODB_URI
-# - JWT_SECRET
-# - STRIPE_SECRET_KEY
-# - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+# Créer .env.local avec:
+MONGODB_URI=mongodb://localhost:27017
+DB_NAME=test_database
+JWT_SECRET=jungle-swimwear-secret-key-2024
+STRIPE_SECRET_KEY=sk_test_emergent
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_key
+NEXT_PUBLIC_APP_URL=http://localhost:3000
 
-# Initialiser les produits dans MongoDB
+# Initialiser les produits
 node scripts/seed.js
 
 # Lancer en développement
 yarn dev
 
-# L'application sera sur http://localhost:3000
+# Ouvrir http://localhost:3000/fr ou /en
 ```
 
-## 📁 Structure du Projet
+## 📁 Structure
 
 ```
 nextjs-app/
 ├── app/
-│   ├── api/              # API Routes (remplace FastAPI)
-│   │   ├── auth/         # Authentification endpoints
-│   │   ├── products/     # Produits endpoints
-│   │   ├── cart/         # Panier endpoints
-│   │   ├── orders/       # Commandes endpoints
-│   │   └── payments/     # Paiements Stripe endpoints
-│   ├── home/             # Page d'accueil
-│   ├── shop/             # Page boutique
-│   ├── product/[id]/     # Page détail produit
-│   ├── auth/             # Page authentification
-│   ├── cart/             # Page panier
-│   ├── checkout/         # Pages checkout
-│   ├── account/          # Page compte utilisateur
-│   ├── about/            # Page à propos
-│   ├── layout.tsx        # Layout principal
-│   └── globals.css       # Styles globaux
-├── components/           # Composants React
-│   └── ui/              # Composants shadcn/ui
-├── lib/                 # Utilitaires
-│   ├── mongodb.ts       # Client MongoDB
-│   ├── auth.ts          # Auth helpers
-│   ├── stripe.ts        # Stripe helpers
-│   └── utils.ts         # Utilitaires divers
-├── scripts/
-│   └── seed.js          # Script d'initialisation produits
-└── package.json
+│   ├── [locale]/              # Routes internationalisées
+│   │   ├── home/             # Page d'accueil
+│   │   ├── shop/             # Catalogue
+│   │   ├── product/[id]/     # Détail produit
+│   │   ├── auth/             # Authentification
+│   │   ├── cart/             # Panier
+│   │   ├── checkout/         # Checkout
+│   │   │   └── success/      # Confirmation
+│   │   ├── account/          # Compte utilisateur
+│   │   └── about/            # À propos
+│   ├── api/                  # API Routes (Backend)
+│   │   ├── auth/             # Auth endpoints
+│   │   ├── products/         # Produits
+│   │   ├── cart/             # Panier
+│   │   ├── orders/           # Commandes
+│   │   └── payments/         # Stripe
+│   ├── layout.tsx            # Layout racine
+│   └── globals.css           # Styles globaux
+├── components/
+│   ├── Navbar.tsx            # Navigation + sélecteur langue
+│   ├── Footer.tsx            # Footer
+│   ├── ProductCard.tsx       # Carte produit
+│   └── ui/                   # Composants shadcn/ui
+├── lib/
+│   ├── stores/               # Zustand stores
+│   │   ├── auth.ts          # Store auth
+│   │   └── cart.ts          # Store panier
+│   ├── mongodb.ts           # Client MongoDB
+│   ├── auth.ts              # Helpers auth JWT
+│   ├── stripe.ts            # Helpers Stripe
+│   └── utils.ts             # Utilitaires
+├── messages/                 # Traductions i18n
+│   ├── fr.json              # Français
+│   └── en.json              # English
+├── middleware.ts             # Middleware i18n
+├── i18n.ts                  # Config i18n
+└── scripts/
+    └── seed.js              # Seed produits
 ```
 
-## 🔑 API Routes (Next.js)
+## 🌐 URLs de l'Application
+
+### Français
+- `/fr/home` - Accueil
+- `/fr/shop` - Boutique
+- `/fr/product/[id]` - Détail produit
+- `/fr/auth` - Connexion/Inscription
+- `/fr/cart` - Panier
+- `/fr/checkout` - Commande
+- `/fr/account` - Mon compte
+- `/fr/about` - À propos
+
+### English
+Remplacer `/fr` par `/en` pour toutes les URLs
+
+## 🔑 API Endpoints
+
+Tous les endpoints sont préfixés par `/api`:
 
 ### Authentification
 - `POST /api/auth/register` - Inscription
@@ -100,28 +136,41 @@ nextjs-app/
 ### Panier
 - `GET /api/cart` - Récupérer le panier
 - `POST /api/cart/add` - Ajouter au panier
-- `POST /api/cart/update` - Modifier la quantité
-- `DELETE /api/cart/remove/[productId]/[size]/[color]` - Retirer un article
+- `POST /api/cart/update` - Modifier quantité
+- `DELETE /api/cart/remove/[productId]/[size]/[color]` - Retirer
 
 ### Commandes
 - `GET /api/orders` - Liste des commandes
 - `POST /api/orders` - Créer une commande
-- `GET /api/orders/[id]` - Détail d'une commande
+- `GET /api/orders/[id]` - Détail commande
 
 ### Paiements
-- `POST /api/payments/checkout` - Créer une session Stripe
-- `GET /api/payments/status/[sessionId]` - Vérifier le statut du paiement
+- `POST /api/payments/checkout` - Créer session Stripe
+- `GET /api/payments/status/[sessionId]` - Statut paiement
 
-## 🎨 Design
+## 🎨 Thème Jungle Chic
 
-Le design suit les guidelines "Jungle Chic":
-- Couleurs: Vert jungle (#1A4D2E), Doré (#D4A373), Crème (#F9F7F2)
-- Typographie: Playfair Display (headings), Manrope (body)
-- Style: Quiet Luxury avec touches tropicales
+### Couleurs
+- **Primary** (Vert jungle): `#1A4D2E` / `hsl(145 50% 20%)`
+- **Secondary** (Sable doré): `#D4A373` / `hsl(30 50% 64%)`
+- **Background** (Crème): `#F9F7F2` / `hsl(40 20% 96%)`
+- **Accent** (Terracotta): `#E76F51` / `hsl(12 76% 61%)`
 
-## 🚀 Déploiement
+### Typographie
+- **Headings**: Playfair Display (serif)
+- **Body**: Manrope (sans-serif)
 
-### Vercel (Recommandé)
+## 🛠️ Scripts
+
+```bash
+yarn dev          # Développement (port 3000)
+yarn build        # Build production
+yarn start        # Start production
+yarn lint         # Linter
+node scripts/seed.js  # Initialiser produits
+```
+
+## 🚀 Déploiement Vercel
 
 ```bash
 # Installer Vercel CLI
@@ -130,56 +179,62 @@ npm i -g vercel
 # Déployer
 vercel
 
-# Configurer les variables d'environnement sur Vercel dashboard:
+# Configurer les variables d'environnement sur Vercel:
 # - MONGODB_URI
-# - JWT_SECRET  
+# - JWT_SECRET
 # - STRIPE_SECRET_KEY
 # - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+# - NEXT_PUBLIC_APP_URL
 ```
 
-### Autre plateforme
+## 🆚 Avantages vs React + FastAPI
 
-1. Build: `yarn build`
-2. Start: `yarn start`
-3. Configurer les variables d'environnement
+| Aspect | React + FastAPI | Next.js Fullstack |
+|--------|----------------|-------------------|
+| **Projets** | 2 séparés | 1 unifié ✅ |
+| **Backend** | Python | TypeScript |
+| **SEO** | Client-side | SSR ✅ |
+| **i18n** | Manuel | next-intl ✅ |
+| **Images** | Standard | Optimisées ✅ |
+| **Déploiement** | 2 services | 1 clic Vercel ✅ |
+| **Type Safety** | Backend only | Fullstack ✅ |
+
+## 📝 Traductions
+
+Toutes les traductions sont dans `/messages/`:
+- `fr.json` - Français
+- `en.json` - English
+
+Pour ajouter une langue:
+1. Créer `/messages/[locale].json`
+2. Ajouter la locale dans `middleware.ts`
+3. Traduire tous les strings
 
 ## 🔒 Sécurité
 
-- JWT tokens pour l'authentification
+- JWT tokens (30 jours)
 - Mots de passe hashés avec bcrypt
-- Validation des données côté serveur
-- Paiements sécurisés via Stripe
+- Validation TypeScript
+- Paiements Stripe sécurisés
+- Variables d'environnement
 
-## 📝 Scripts Disponibles
+## 🎯 Produits Inclus
 
-```bash
-yarn dev          # Développement
-yarn build        # Build production
-yarn start        # Start production
-yarn lint         # Linter ESLint
-node scripts/seed.js  # Initialiser les produits
-```
+6 produits pré-configurés:
+- Maillots une pièce (3)
+- Bikinis (2)  
+- Paréo (1)
 
-## 🆚 Différences avec l'ancienne version
+Prix: 45€ - 95€
 
-| Aspect | Ancienne (React + FastAPI) | Nouvelle (Next.js) |
-|--------|---------------------------|-------------------|
-| **Projets** | 2 séparés | 1 unifié |
-| **Backend** | Python FastAPI | TypeScript API Routes |
-| **Frontend** | React | Next.js (React) |
-| **Routing** | React Router | Next.js App Router |
-| **API** | REST séparé | API Routes intégrées |
-| **SEO** | Client-side | Server-Side Rendering |
-| **Déploiement** | 2 services | 1 service |
-| **Type Safety** | Pydantic (backend) | TypeScript (fullstack) |
+## 💡 Prochaines Étapes
 
-## 🎯 Prochaines Étapes
-
-- Ajouter un système de wishlist
-- Implémenter les avis clients
-- Ajouter des filtres avancés
-- Créer un dashboard admin complet
-- Optimiser les images avec Next/Image
+- Ajouter plus de langues (ES, DE, IT)
+- Système de wishlist
+- Avis clients
+- Dashboard admin complet
+- Filtres avancés
+- Newsletter
 
 ## 📄 License
 
@@ -187,4 +242,4 @@ Projet de démonstration. Tous droits réservés.
 
 ---
 
-**Créé avec Next.js 14 et ❤️**
+**Créé avec Next.js 14, TypeScript, i18n et ❤️**
