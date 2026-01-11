@@ -16,11 +16,11 @@
   "/page": "app/page.js",
   "/[locale]/about/page": "app/[locale]/about/page.js",
   "/[locale]/account/page": "app/[locale]/account/page.js",
-  "/[locale]/auth/page": "app/[locale]/auth/page.js",
-  "/[locale]/checkout/page": "app/[locale]/checkout/page.js",
   "/[locale]/cart/page": "app/[locale]/cart/page.js",
+  "/[locale]/checkout/page": "app/[locale]/checkout/page.js",
   "/[locale]/checkout/success/page": "app/[locale]/checkout/success/page.js",
   "/[locale]/home/page": "app/[locale]/home/page.js",
   "/[locale]/product/[id]/page": "app/[locale]/product/[id]/page.js",
-  "/[locale]/shop/page": "app/[locale]/shop/page.js"
+  "/[locale]/shop/page": "app/[locale]/shop/page.js",
+  "/[locale]/auth/page": "app/[locale]/auth/page.js"
 }
