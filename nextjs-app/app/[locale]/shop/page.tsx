@@ -73,7 +73,7 @@ export default function ShopPage() {
   };
 
   return (
-    <>
+    <React.Fragment>
       <Navbar locale={locale} />
       <div className=\"min-h-screen\">
         <div className=\"texture-overlay\" />
