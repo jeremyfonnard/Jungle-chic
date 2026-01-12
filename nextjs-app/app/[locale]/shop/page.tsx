@@ -64,7 +64,7 @@ export default function ShopPage() {
   };
 
   const categories = ['all', 'one-piece', 'bikini', 'tankini', 'cover-up'];
-  const categoryLabels = {
+  const categoryLabels: Record<string, string> = {
     all: locale === 'fr' ? 'Tous' : 'All',
     'one-piece': locale === 'fr' ? 'Une pièce' : 'One-piece',
     bikini: 'Bikini',
