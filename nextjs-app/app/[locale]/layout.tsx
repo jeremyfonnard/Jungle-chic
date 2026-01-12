@@ -17,16 +17,17 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  // Set default locale if invalid
   if (!locales.includes(locale as any)) {
-    notFound();
+    locale = 'fr';
   }
 
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages} locale={locale}>
           {children}
           <Toaster position="top-right" richColors />
         </NextIntlClientProvider>
