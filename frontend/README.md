@@ -1,70 +1,245 @@
-# Getting Started with Create React App
+# Jungle Chic - Next.js Fullstack E-commerce avec i18n
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Application e-commerce complète Next.js 14 pour maillots de bain avec **internationalisation français/anglais**.
 
-## Available Scripts
+## 🌍 Nouveauté: Multilingue FR/EN
 
-In the project directory, you can run:
+- **Français** (par défaut): `/fr/*`
+- **English**: `/en/*`
+- Sélecteur de langue dans la navbar
+- Traductions complètes de l'interface
 
-### `npm start`
+## ✨ Fonctionnalités Complètes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### E-commerce
+- ✅ Catalogue produits avec filtres (catégorie, prix, couleur, taille)
+- ✅ Pages détail produit avec galerie d'images
+- ✅ Panier d'achat avec gestion des quantités
+- ✅ Processus de checkout multi-étapes
+- ✅ Paiements sécurisés Stripe
+- ✅ Compte utilisateur avec historique des commandes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Technique
+- ✅ Next.js 14 App Router
+- ✅ TypeScript fullstack
+- ✅ API Routes (Backend)
+- ✅ MongoDB avec Motor
+- ✅ Zustand pour state management
+- ✅ next-intl pour i18n
+- ✅ Tailwind CSS + shadcn/ui
+- ✅ Images optimisées avec Next/Image
 
-### `npm test`
+## 🚀 Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prérequis
+- Node.js 18+
+- MongoDB
+- Yarn
 
-### `npm run build`
+### Étapes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Installer les dépendances
+yarn install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Configurer les variables d'environnement
+# Créer .env.local avec:
+MONGODB_URI=mongodb://localhost:27017
+DB_NAME=test_database
+JWT_SECRET=jungle-swimwear-secret-key-2024
+STRIPE_SECRET_KEY=sk_test_emergent
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_key
+NEXT_PUBLIC_APP_URL=http://localhost:3000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Initialiser les produits
+node scripts/seed.js
 
-### `npm run eject`
+# Lancer en développement
+yarn dev
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Ouvrir http://localhost:3000/fr ou /en
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📁 Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+nextjs-app/
+├── app/
+│   ├── [locale]/              # Routes internationalisées
+│   │   ├── home/             # Page d'accueil
+│   │   ├── shop/             # Catalogue
+│   │   ├── product/[id]/     # Détail produit
+│   │   ├── auth/             # Authentification
+│   │   ├── cart/             # Panier
+│   │   ├── checkout/         # Checkout
+│   │   │   └── success/      # Confirmation
+│   │   ├── account/          # Compte utilisateur
+│   │   └── about/            # À propos
+│   ├── api/                  # API Routes (Backend)
+│   │   ├── auth/             # Auth endpoints
+│   │   ├── products/         # Produits
+│   │   ├── cart/             # Panier
+│   │   ├── orders/           # Commandes
+│   │   └── payments/         # Stripe
+│   ├── layout.tsx            # Layout racine
+│   └── globals.css           # Styles globaux
+├── components/
+│   ├── Navbar.tsx            # Navigation + sélecteur langue
+│   ├── Footer.tsx            # Footer
+│   ├── ProductCard.tsx       # Carte produit
+│   └── ui/                   # Composants shadcn/ui
+├── lib/
+│   ├── stores/               # Zustand stores
+│   │   ├── auth.ts          # Store auth
+│   │   └── cart.ts          # Store panier
+│   ├── mongodb.ts           # Client MongoDB
+│   ├── auth.ts              # Helpers auth JWT
+│   ├── stripe.ts            # Helpers Stripe
+│   └── utils.ts             # Utilitaires
+├── messages/                 # Traductions i18n
+│   ├── fr.json              # Français
+│   └── en.json              # English
+├── middleware.ts             # Middleware i18n
+├── i18n.ts                  # Config i18n
+└── scripts/
+    └── seed.js              # Seed produits
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🌐 URLs de l'Application
 
-## Learn More
+### Français
+- `/fr/home` - Accueil
+- `/fr/shop` - Boutique
+- `/fr/product/[id]` - Détail produit
+- `/fr/auth` - Connexion/Inscription
+- `/fr/cart` - Panier
+- `/fr/checkout` - Commande
+- `/fr/account` - Mon compte
+- `/fr/about` - À propos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### English
+Remplacer `/fr` par `/en` pour toutes les URLs
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔑 API Endpoints
 
-### Code Splitting
+Tous les endpoints sont préfixés par `/api`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Authentification
+- `POST /api/auth/register` - Inscription
+- `POST /api/auth/login` - Connexion
+- `GET /api/auth/me` - Utilisateur actuel
 
-### Analyzing the Bundle Size
+### Produits
+- `GET /api/products` - Liste des produits
+- `GET /api/products/[id]` - Détail produit
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Panier
+- `GET /api/cart` - Récupérer le panier
+- `POST /api/cart/add` - Ajouter au panier
+- `POST /api/cart/update` - Modifier quantité
+- `DELETE /api/cart/remove/[productId]/[size]/[color]` - Retirer
 
-### Making a Progressive Web App
+### Commandes
+- `GET /api/orders` - Liste des commandes
+- `POST /api/orders` - Créer une commande
+- `GET /api/orders/[id]` - Détail commande
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Paiements
+- `POST /api/payments/checkout` - Créer session Stripe
+- `GET /api/payments/status/[sessionId]` - Statut paiement
 
-### Advanced Configuration
+## 🎨 Thème Jungle Chic
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Couleurs
+- **Primary** (Vert jungle): `#1A4D2E` / `hsl(145 50% 20%)`
+- **Secondary** (Sable doré): `#D4A373` / `hsl(30 50% 64%)`
+- **Background** (Crème): `#F9F7F2` / `hsl(40 20% 96%)`
+- **Accent** (Terracotta): `#E76F51` / `hsl(12 76% 61%)`
 
-### Deployment
+### Typographie
+- **Headings**: Playfair Display (serif)
+- **Body**: Manrope (sans-serif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🛠️ Scripts
 
-### `npm run build` fails to minify
+```bash
+yarn dev          # Développement (port 3000)
+yarn build        # Build production
+yarn start        # Start production
+yarn lint         # Linter
+node scripts/seed.js  # Initialiser produits
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🚀 Déploiement Vercel
+
+```bash
+# Installer Vercel CLI
+npm i -g vercel
+
+# Déployer
+vercel
+
+# Configurer les variables d'environnement sur Vercel:
+# - MONGODB_URI
+# - JWT_SECRET
+# - STRIPE_SECRET_KEY
+# - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+# - NEXT_PUBLIC_APP_URL
+```
+
+## 🆚 Avantages vs React + FastAPI
+
+| Aspect | React + FastAPI | Next.js Fullstack |
+|--------|----------------|-------------------|
+| **Projets** | 2 séparés | 1 unifié ✅ |
+| **Backend** | Python | TypeScript |
+| **SEO** | Client-side | SSR ✅ |
+| **i18n** | Manuel | next-intl ✅ |
+| **Images** | Standard | Optimisées ✅ |
+| **Déploiement** | 2 services | 1 clic Vercel ✅ |
+| **Type Safety** | Backend only | Fullstack ✅ |
+
+## 📝 Traductions
+
+Toutes les traductions sont dans `/messages/`:
+- `fr.json` - Français
+- `en.json` - English
+
+Pour ajouter une langue:
+1. Créer `/messages/[locale].json`
+2. Ajouter la locale dans `middleware.ts`
+3. Traduire tous les strings
+
+## 🔒 Sécurité
+
+- JWT tokens (30 jours)
+- Mots de passe hashés avec bcrypt
+- Validation TypeScript
+- Paiements Stripe sécurisés
+- Variables d'environnement
+
+## 🎯 Produits Inclus
+
+6 produits pré-configurés:
+- Maillots une pièce (3)
+- Bikinis (2)  
+- Paréo (1)
+
+Prix: 45€ - 95€
+
+## 💡 Prochaines Étapes
+
+- Ajouter plus de langues (ES, DE, IT)
+- Système de wishlist
+- Avis clients
+- Dashboard admin complet
+- Filtres avancés
+- Newsletter
+
+## 📄 License
+
+Projet de démonstration. Tous droits réservés.
+
+---
+
+**Créé avec Next.js 14, TypeScript, i18n et ❤️**
