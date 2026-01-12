@@ -202,6 +202,6 @@ export default function ShopPage() {
         </div>
       </div>
       <Footer locale={locale} />
-    </>
+    </React.Fragment>
   );
 }
