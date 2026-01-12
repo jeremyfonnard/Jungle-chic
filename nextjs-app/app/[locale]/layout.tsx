@@ -1,5 +1,4 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import '../globals.css';
 import { Toaster } from 'sonner';
@@ -17,12 +16,18 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // Set default locale if invalid
+  // Validate locale
   if (!locales.includes(locale as any)) {
-    locale = 'fr';
+    notFound();
   }
 
-  const messages = await getMessages({ locale });
+  // Load messages directly
+  let messages;
+  try {
+    messages = (await import(`../../messages/${locale}.json`)).default;
+  } catch (error) {
+    notFound();
+  }
 
   return (
     <html lang={locale}>
