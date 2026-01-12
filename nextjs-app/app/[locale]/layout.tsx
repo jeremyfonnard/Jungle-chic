@@ -1,4 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import '../globals.css';
 import { Toaster } from 'sonner';
@@ -21,18 +22,14 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  // Load messages directly
-  let messages;
-  try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
-    notFound();
-  }
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
 
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages} locale={locale}>
+        <NextIntlClientProvider messages={messages}>
           {children}
           <Toaster position="top-right" richColors />
         </NextIntlClientProvider>
