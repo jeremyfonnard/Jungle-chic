@@ -34,8 +34,15 @@ export default function ShopPage() {
 
   const fetchProducts = async () => {
     try {
+      console.log('Fetching products...');
       const response = await axios.get('/api/products');
-      setProducts(response.data);
+      console.log('Products fetched:', response.data);
+      if (Array.isArray(response.data)) {
+        setProducts(response.data);
+        setFilteredProducts(response.data);
+      } else {
+        console.error('Response is not an array:', response.data);
+      }
     } catch (error) {
       console.error('Error fetching products:', error);
     } finally {
