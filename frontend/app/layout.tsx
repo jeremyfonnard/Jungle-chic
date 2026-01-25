@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
-  title: 'Jungle Chic - Maillots de Bain Élégants',
-  description: 'Boutique en ligne de maillots de bain pour femmes avec un design jungle élégant',
+  title: 'Korail - Maillots de Bain Élégants',
+  description: 'Boutique en ligne de maillots de bain pour femmes avec un design plage élégant',
 };
 
 export default function RootLayout({

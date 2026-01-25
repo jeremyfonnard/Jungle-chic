@@ -13,7 +13,7 @@ export function Footer({ locale }: { locale: string }) {
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
           backgroundImage:
-            'url(https://images.unsplash.com/photo-1517008824309-6e915846619b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwzfHx0cm9waWNhbCUyMHBhbG0lMjBsZWF2ZXMlMjB0ZXh0dXJlJTIwZWxlZ2FudCUyMHdhbGxwYXBlcnxlbnwwfHx8fDE3NjgxMzQ0MjB8MA&ixlib=rb-4.1.0&q=85)',
+            'url(https://images.unsplash.com/photo-1693691553855-b691c68d8066?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwzfHxiZWFjaCUyMHNhbmQlMjB0ZXh0dXJlJTIwcGF0dGVybnxlbnwwfHx8fDE3NjkzNDkzNTl8MA&ixlib=rb-4.1.0&q=85)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -21,11 +21,11 @@ export function Footer({ locale }: { locale: string }) {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
-            <h3 className="text-2xl font-serif font-bold mb-4">Jungle Chic</h3>
+            <h3 className="text-2xl font-serif font-bold mb-4">Korail</h3>
             <p className="text-primary-foreground/80 leading-relaxed">
               {locale === 'fr'
-                ? 'Maillots de bain élégants inspirés par la nature tropicale.'
-                : 'Elegant swimwear inspired by tropical nature.'}
+                ? 'Maillots de bain élégants inspirés par la beauté des plages.'
+                : 'Elegant swimwear inspired by beach beauty.'}
             </p>
           </div>
 
@@ -59,10 +59,10 @@ export function Footer({ locale }: { locale: string }) {
             </h4>
             <div className="flex flex-col gap-2">
               <a
-                href="mailto:contact@junglechic.com"
+                href="mailto:contact@korail.com"
                 className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
-                contact@junglechic.com
+                contact@korail.com
               </a>
               <p className="text-primary-foreground/80">
                 {locale === 'fr' ? 'Livraison gratuite dès 50€' : 'Free shipping over $50'}
@@ -101,7 +101,7 @@ export function Footer({ locale }: { locale: string }) {
         </div>
 
         <div className="mt-12 pt-8 border-t border-primary-foreground/20 text-center text-primary-foreground/60">
-          <p>© 2024 Jungle Chic. {locale === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}</p>
+          <p>© 2026 Korail. {locale === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}</p>
         </div>
       </div>
     </footer>

@@ -28,7 +28,7 @@ export function Navbar({ locale }: { locale: string }) {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24">
         <div className="flex justify-between items-center h-20">
           <Link href={`/${locale}/home`} className="text-2xl md:text-3xl font-serif font-bold text-primary">
-            Jungle Chic
+            Korail
           </Link>
 
           <div className="hidden md:flex items-center gap-8">

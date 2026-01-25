@@ -32,7 +32,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-serif text-primary mb-6">
-                {locale === 'fr' ? 'Élégance Tropicale' : 'Tropical Elegance'}
+                {locale === 'fr' ? 'Élégance Balnéaire' : 'Beach Elegance'}
               </h2>
               <p className="text-base leading-relaxed text-foreground/80 mb-4">{t('content')}</p>
               <p className="text-base leading-relaxed text-foreground/80 mb-4">
@@ -43,8 +43,8 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-[4/5]">
               <Image
-                src="https://images.unsplash.com/photo-1623114857732-02a86271e09f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwzfHx3b21hbiUyMGluJTIwc3dpbXdlYXIlMjB0cm9waWNhbCUyMGp1bmdsZSUyMGJlYWNoJTIwZWxlZ2FudHxlbnwwfHx8fDE3NjgxMzQ0MTd8MA&ixlib=rb-4.1.0&q=85"
-                alt="Élégance tropicale"
+                src="https://images.unsplash.com/photo-1619516962669-49187abe3893?w=800"
+                alt="Élégance plage"
                 fill
                 className="rounded-2xl shadow-lg object-cover"
               />

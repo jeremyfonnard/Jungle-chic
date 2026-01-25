@@ -6,25 +6,26 @@
 
 @layer base {
   :root {
-    --background: 40 20% 96%;
-    --foreground: 145 50% 20%;
-    --card: 40 20% 96%;
-    --card-foreground: 145 50% 20%;
-    --popover: 40 20% 96%;
-    --popover-foreground: 145 50% 20%;
-    --primary: 145 50% 20%;
-    --primary-foreground: 40 20% 96%;
-    --secondary: 30 50% 64%;
-    --secondary-foreground: 145 50% 20%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 12 76% 61%;
+    /* Korail - Beach & Coral Theme */
+    --background: 30 25% 97%;
+    --foreground: 20 30% 20%;
+    --card: 30 25% 97%;
+    --card-foreground: 20 30% 20%;
+    --popover: 30 25% 97%;
+    --popover-foreground: 20 30% 20%;
+    --primary: 12 65% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 35% 75%;
+    --secondary-foreground: 20 30% 20%;
+    --muted: 30 20% 94%;
+    --muted-foreground: 20 15% 45%;
+    --accent: 174 55% 42%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 145 50% 20%;
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 12 65% 60%;
     --radius: 0.75rem;
   }
 }
@@ -56,10 +57,10 @@
 .texture-overlay {
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1517008824309-6e915846619b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwzfHx0cm9waWNhbCUyMHBhbG0lMjBsZWF2ZXMlMjB0ZXh0dXJlJTIwZWxlZ2FudCUyMHdhbGxwYXBlcnxlbnwwfHx8fDE3NjgxMzQ0MjB8MA&ixlib=rb-4.1.0&q=85');
+  background-image: url('https://images.unsplash.com/photo-1693691553855-b691c68d8066?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwzfHxiZWFjaCUyMHNhbmQlMjB0ZXh0dXJlJTIwcGF0dGVybnxlbnwwfHx8fDE3NjkzNDkzNTl8MA&ixlib=rb-4.1.0&q=85');
   background-size: cover;
   background-position: center;
-  opacity: 0.05;
+  opacity: 0.06;
   pointer-events: none;
   z-index: -1;
 }

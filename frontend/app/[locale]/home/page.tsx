@@ -42,7 +42,7 @@ export default function HomePage() {
           className="relative h-[90vh] flex items-center justify-center hero-section"
           style={{
             backgroundImage:
-              'url(https://images.unsplash.com/photo-1757196892910-e12bc2874300?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGluJTIwc3dpbXdlYXIlMjB0cm9waWNhbCUyMGp1bmdsZSUyMGJlYWNoJTIwZWxlZ2FudHxlbnwwfHx8fDE3NjgxMzQ0MTd8MA&ixlib=rb-4.1.0&q=85)',
+              'url(https://images.unsplash.com/photo-1762237722246-38491dbf281f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGJlYWNoJTIwdHVycXVvaXNlJTIwd2F0ZXIlMjBzYW5kfGVufDB8fHx8MTc2OTM0OTM1NHww&ixlib=rb-4.1.0&q=85)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -113,7 +113,7 @@ export default function HomePage() {
           className="relative py-20 md:py-32"
           style={{
             backgroundImage:
-              'url(https://images.unsplash.com/photo-1647378165401-8e101ed45ad8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiZWFjaCUyMHJlc29ydCUyMHBvb2wlMjBqdW5nbGUlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc2ODEzNDQyMXww&ixlib=rb-4.1.0&q=85)',
+              'url(https://images.unsplash.com/photo-1585551896871-fb3cac6df620?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwyfHx0cm9waWNhbCUyMGJlYWNoJTIwdHVycXVvaXNlJTIwd2F0ZXIlMjBzYW5kfGVufDB8fHx8MTc2OTM0OTM1NHww&ixlib=rb-4.1.0&q=85)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
