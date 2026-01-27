@@ -8,16 +8,7 @@ export function Footer({ locale }: { locale: string }) {
   const t = useTranslations('nav');
 
   return (
-    <footer className="bg-primary text-primary-foreground mt-20">
-      <div
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage:
-            'url(https://images.unsplash.com/photo-1693691553855-b691c68d8066?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwzfHxiZWFjaCUyMHNhbmQlMjB0ZXh0dXJlJTIwcGF0dGVybnxlbnwwfHx8fDE3NjkzNDkzNTl8MA&ixlib=rb-4.1.0&q=85)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
+    <footer className="bg-primary/90 text-primary-foreground relative">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
