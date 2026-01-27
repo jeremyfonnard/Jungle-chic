@@ -6,26 +6,33 @@
 
 @layer base {
   :root {
-    /* Korail - Beach & Coral Theme */
-    --background: 30 25% 97%;
-    --foreground: 20 30% 20%;
-    --card: 30 25% 97%;
-    --card-foreground: 20 30% 20%;
-    --popover: 30 25% 97%;
-    --popover-foreground: 20 30% 20%;
-    --primary: 12 65% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 35 35% 75%;
-    --secondary-foreground: 20 30% 20%;
-    --muted: 30 20% 94%;
-    --muted-foreground: 20 15% 45%;
-    --accent: 174 55% 42%;
-    --accent-foreground: 0 0% 100%;
+    /* Korail - Natural Beach Palette */
+    /* Sand Warm #F5EDE4 - Background principal */
+    --background: 32 41% 93%;
+    /* Driftwood #A69B8E - Text & accents */
+    --foreground: 32 12% 35%;
+    /* Cream White #FAF8F5 - Cards */
+    --card: 36 33% 97%;
+    --card-foreground: 32 12% 25%;
+    --popover: 36 33% 97%;
+    --popover-foreground: 32 12% 25%;
+    /* Driftwood as primary */
+    --primary: 32 12% 60%;
+    --primary-foreground: 36 33% 97%;
+    /* Sand tones */
+    --secondary: 32 30% 85%;
+    --secondary-foreground: 32 12% 30%;
+    --muted: 32 25% 90%;
+    --muted-foreground: 32 12% 45%;
+    /* Soft accent */
+    --accent: 32 20% 70%;
+    --accent-foreground: 32 12% 25%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 30 20% 85%;
-    --input: 30 20% 85%;
-    --ring: 12 65% 60%;
+    /* Driftwood borders */
+    --border: 32 12% 75%;
+    --input: 32 12% 80%;
+    --ring: 32 12% 60%;
     --radius: 0.75rem;
   }
 }
