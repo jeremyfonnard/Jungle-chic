@@ -82,8 +82,8 @@ export default function ShopPage() {
   return (
     <React.Fragment>
       <Navbar locale={locale} />
-      <div className="min-h-screen">
-        <div className="texture-overlay" />
+      <div className="min-h-screen relative">
+        <div className="texture-overlay" style={{ position: 'fixed' }} />
 
         <section className="bg-primary text-primary-foreground py-16">
           <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 text-center">
