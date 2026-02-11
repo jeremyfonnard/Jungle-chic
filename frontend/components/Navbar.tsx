@@ -81,28 +81,33 @@ export function Navbar({ locale }: { locale: string }) {
               <span className="text-sm font-medium">{locale.toUpperCase()}</span>
             </button>
 
+            {/* Cart button - always visible */}
+            <div className="relative">
+              <Button
+                variant="ghost"
+                onClick={() => (window.location.href = `/${locale}/cart`)}
+                data-testid="nav-cart-button"
+                className="text-primary hover:text-secondary relative"
+              >
+                <ShoppingBag className="w-5 h-5" />
+                {cartItemsCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                    {cartItemsCount}
+                  </span>
+                )}
+              </Button>
+            </div>
+
             {user ? (
               <>
                 <Button
                   variant="ghost"
                   onClick={() => (window.location.href = `/${locale}/account`)}
                   data-testid="nav-account-button"
-                  className="text-primary hover:text-secondary"
+                  className="text-primary hover:text-secondary flex items-center gap-2"
                 >
                   <User className="w-5 h-5" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  onClick={() => (window.location.href = `/${locale}/cart`)}
-                  data-testid="nav-cart-button"
-                  className="text-primary hover:text-secondary relative"
-                >
-                  <ShoppingBag className="w-5 h-5" />
-                  {cartItemsCount > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                      {cartItemsCount}
-                    </span>
-                  )}
+                  <span className="hidden md:inline text-sm">{user.first_name || user.email.split('@')[0]}</span>
                 </Button>
                 <Button
                   onClick={logout}
