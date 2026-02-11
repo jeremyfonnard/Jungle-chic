@@ -51,16 +51,6 @@ export default function ProductDetailPage() {
   };
 
   const handleAddToCart = async () => {
-    if (!user) {
-      toast.error(
-        locale === 'fr'
-          ? 'Veuillez vous connecter pour ajouter au panier'
-          : 'Please login to add to cart'
-      );
-      window.location.href = `/${locale}/auth`;
-      return;
-    }
-
     if (!selectedSize || !selectedColor) {
       toast.error(
         locale === 'fr'
@@ -71,7 +61,11 @@ export default function ProductDetailPage() {
     }
 
     try {
-      await addToCart(product.id, selectedSize, selectedColor, quantity);
+      await addToCart(product.id, selectedSize, selectedColor, quantity, {
+        name: product.name,
+        price: product.price,
+        image: product.images[0]
+      });
       toast.success(t('add_success'));
     } catch (error) {
       toast.error(locale === 'fr' ? "Erreur lors de l'ajout au panier" : 'Error adding to cart');
