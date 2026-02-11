@@ -11,10 +11,18 @@ import { useState, useEffect } from 'react';
 
 export function Navbar({ locale }: { locale: string }) {
   const t = useTranslations('nav');
-  const { user, logout } = useAuthStore();
-  const { cart } = useCartStore();
+  const { user, logout, initialize } = useAuthStore();
+  const { cart, fetchCart } = useCartStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+    initialize().then(() => {
+      fetchCart();
+    });
+  }, [initialize, fetchCart]);
 
   const cartItemsCount = cart?.items?.reduce((acc, item) => acc + item.quantity, 0) || 0;
 
@@ -22,6 +30,21 @@ export function Navbar({ locale }: { locale: string }) {
     const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
     window.location.href = newPath;
   };
+
+  // Avoid hydration mismatch
+  if (!mounted) {
+    return (
+      <nav className="sticky top-0 z-50 glassmorphism shadow-sm">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24">
+          <div className="flex justify-between items-center h-20">
+            <Link href={`/${locale}/home`} className="text-2xl md:text-3xl font-serif font-bold text-primary">
+              Koray
+            </Link>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav className="sticky top-0 z-50 glassmorphism shadow-sm">
