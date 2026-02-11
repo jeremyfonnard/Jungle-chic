@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
-  title: 'Korail - Maillots de Bain Élégants',
+  title: 'Koray - Maillots de Bain Élégants',
   description: 'Boutique en ligne de maillots de bain pour femmes avec un design plage élégant',
 };
 

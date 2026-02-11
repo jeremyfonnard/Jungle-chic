@@ -12,7 +12,7 @@ export function Footer({ locale }: { locale: string }) {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
-            <h3 className="text-2xl font-serif font-bold mb-4">Korail</h3>
+            <h3 className="text-2xl font-serif font-bold mb-4">Koray</h3>
             <p className="text-primary-foreground/80 leading-relaxed">
               {locale === 'fr'
                 ? 'Maillots de bain élégants inspirés par la beauté des plages.'
@@ -92,7 +92,7 @@ export function Footer({ locale }: { locale: string }) {
         </div>
 
         <div className="mt-12 pt-8 border-t border-primary-foreground/20 text-center text-primary-foreground/60">
-          <p>© 2026 Korail. {locale === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}</p>
+          <p>© 2026 Koray. {locale === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}</p>
         </div>
       </div>
     </footer>
